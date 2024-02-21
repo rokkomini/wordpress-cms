@@ -1,0 +1,25 @@
+.card-wrapper {
+  height: 250px;
+  width: 100%;
+  border: solid 3px black;
+  background-size: cover;
+
+  .location-bg {
+    width: 100%;
+    background-color: rgba(244, 251, 251, 0.567);
+    height: 75px;
+    transition: height 1s ease-in-out;
+    pointer-events: none;
+
+
+    a {
+
+      text-decoration: none;
+      pointer-events:auto;
+    }
+    &:hover {
+      height: 100%;
+      transition: height 1s;
+    }
+  }
+}
