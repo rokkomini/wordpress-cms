@@ -10,7 +10,7 @@ export default function Footer() {
       await axios
       .get('/posts')
       .then(response => {
-        response.data.filter((item) => item.title.rendered === 'Footer').map((post) => {
+        response.data.filter((item : any) => item.title.rendered === 'Footer').map((post : any) => {
           setFooter(post.content.rendered)     
       })
       }) 

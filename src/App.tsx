@@ -16,19 +16,19 @@ function App() {
 
   axios.defaults.baseURL = process.env.REACT_APP_API_URI
 
-  const getData = async () => {
-    try {
-      await axios
-        .get('')
-        .then(response => console.log('app page', response.data))
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const getData = async () => {
+  //   try {
+  //     await axios
+  //       .get('')
+  //       .then(response => console.log('app page', response.data))
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
-  useEffect(() => {
-    getData()
-  }, [])
+  // useEffect(() => {
+  //   getData()
+  // }, [])
 
   return (
     <div>
@@ -39,7 +39,7 @@ function App() {
         <Header />
         <div className=''>
           <Routes>
-            <Route path={'/'} element={<WelcomePage data={data}/>}/>
+            <Route path={'/'} element={<WelcomePage/>}/>
             <Route path={'/:location'} element={<LocationPage />} />
           </Routes>
         </div>
