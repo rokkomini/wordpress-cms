@@ -8,18 +8,37 @@
     width: 100%;
     background-color: rgba(244, 251, 251, 0.567);
     height: 75px;
-    transition: height 1s ease-in-out;
-    pointer-events: none;
+    transition: all 1s ease-in-out;
+    overflow: hidden;
+    // pointer-events: none;
 
-
-    a {
-
+    .location-header {
       text-decoration: none;
-      pointer-events:auto;
+      // margin-bottom:20px;
+      position: absolute;
+
     }
+
+    .location-address {
+
+      transform: translateY(200%);
+
+      visibility: hidden;
+      animation-name: textFade;
+      transition: all 1s ease-in-out;
+    }
+
+    @include medium-breakpoint {
+    
     &:hover {
       height: 100%;
-      transition: height 1s;
+
+      .location-address {
+        transform: translateY(100%);
+        transition: all 1s ease-in-out;
+        visibility: visible;
+      }
     }
+  }
   }
 }

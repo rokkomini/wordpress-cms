@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import parse from 'html-react-parser'
 
 export default function ImageCard({page} : any) {
 
@@ -24,9 +25,11 @@ export default function ImageCard({page} : any) {
   return (
 
         <div style={bgImg} className='card-wrapper flex'>
-          {/* <img src={featuredImage} alt="" /> */}
-        <div className="location-bg flex center ">
-          <a className='location-header' href={'#' + page.id}><h2>{page.title.rendered}</h2></a>
+        <div className="location-bg flex center column ">
+
+            <a className='location-header' href={'#' + page.id}><h2>{page.title.rendered}</h2></a>
+            <p className='location-address'>{parse(page.excerpt.rendered)}</p>
+          
         </div>
       </div> 
   )
