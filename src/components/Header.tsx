@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { FiMenu } from "react-icons/fi";
 
 export default function Header() {
   const [headerImage, setHeaderImage] = useState('')
+  const [showList, setShowList] = useState(false)
 
   const getImage = () => {
     axios
       .get('http://eatmyfood.local/wp-json/wp/v2/media')
-      .then(response => setHeaderImage(response.data))
+      .then(response => {
+        response.data.filter((media : any) => media.title.rendered === 'logo-header').map((img:any) => {
+          setHeaderImage(img)
+        })
+      })
   }
 
   useEffect(() => {
@@ -15,19 +21,25 @@ export default function Header() {
   }, [])
   
   return (
+    <>
+    <div className='menu-curtain'></div>
     <div className='header flex'>
       <div className="header-img">
-        {headerImage && headerImage.filter(image => image.title.rendered === 'logo-header').map(img => (
-          <img src={img.source_url} alt={img.alt_text} />
-        ))}
+        
+          <img src={headerImage?.source_url} alt={headerImage?.alt_text} />
+   
       </div>
-      <div className="header-links">
-        <ul>
-          <li><a href="">Kontakt</a></li>
-          <li><a href="">Hagsätra</a></li>
-          <li><a href="">Stockholm Centralstation</a></li>
-        </ul>
+
+      <div className="flex space-between header-links" >
+      <button>
+        <FiMenu />
+      </button>
+          <a href="">Kontakt</a>
+          <a href="">Om oss</a>
+         <a href="">Hagsätra</a>
+          <a href="">Stockholm Centralstation</a>
       </div>
     </div>
+    </>
   )
 }
