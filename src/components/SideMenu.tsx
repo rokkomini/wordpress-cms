@@ -1,11 +1,11 @@
 import React from 'react'
 import { FiX } from "react-icons/fi";
 
-export default function SideMenu({ showMenu, exitMenu }: any) {
+export default function SideMenu({ showMenu }: any) {
   return (
     <aside className={showMenu ? 'side-menu show' : 'side-menu'}>
       <div className="flex start">
-        <FiX onClick={exitMenu}/>
+      
         <div className='overlay' />
         <div className='flex start header-links content'>
           <a href="">Kontakt</a>

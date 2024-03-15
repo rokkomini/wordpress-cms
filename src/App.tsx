@@ -34,7 +34,7 @@ function App() {
 
   return (
     <div>
-      <SideMenu showMenu={menuActive} exitMenu={() => setMenuActive(!menuActive)}/>
+      <SideMenu showMenu={menuActive}/>
       <div className="width-wrapper">
         {/* <button onClick={() => setCount((count) => count + 1)}>
           count is {count}

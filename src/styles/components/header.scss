@@ -26,14 +26,42 @@
 
   .menu-nav {
     color: $primary-color;
+    
     z-index: 99;
     padding: 15px 20px;
     width: 100%;
     align-items: flex-end;
 
+    @include medium-breakpoint {
+      background-color: $secondary-color;
+      justify-content: space-around;
+    }
+
     svg {
-      @include medium-breakpoint {
-        display: none;
+
+      &.hamburger{
+        &.hide {
+          opacity: 0;
+          transition: opacity 1s ease-in-out 1s;
+        }
+        &.show{
+          opacity: 1;
+          transition: opacity 1s ease 1s;
+        }
+        @include medium-breakpoint {
+          display: none !important;
+        }
+      }
+
+      &.exit {
+        &.hide {
+          opacity: 0;
+          transition: opacity 1s;
+        }
+        &.show {
+          opacity: 1;
+          transition: opacity 1s;
+        }
       }
     }
 
@@ -41,7 +69,7 @@
       display: none;
 
       @include medium-breakpoint {
-      display: block;
+      display: flex;
       }
     }
 
