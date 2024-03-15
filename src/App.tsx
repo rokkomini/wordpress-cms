@@ -9,10 +9,12 @@ import LocationPage from './pages/WelcomePage'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Location from './components/Location'
+import SideMenu from './components/SideMenu'
 
 function App() {
   const [count, setCount] = useState(0)
   const [data, setData] = useState([])
+  const [menuActive, setMenuActive] = useState(false)
 
   axios.defaults.baseURL = process.env.REACT_APP_API_URI
 
@@ -32,11 +34,15 @@ function App() {
 
   return (
     <div>
+      <SideMenu showMenu={menuActive} exitMenu={() => setMenuActive(!menuActive)}/>
       <div className="width-wrapper">
-        <button onClick={() => setCount((count) => count + 1)}>
+        {/* <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </button>
-        <Header />
+        </button> */}
+        <Header 
+          menuActive={menuActive}
+          menuClick={() => setMenuActive(!menuActive)}
+        />
         <div className=''>
           <Routes>
             <Route path={'/'} element={<WelcomePage/>}/>

@@ -24,28 +24,24 @@
     }
   }
 
-  .header-links {
-    background-color: $secondary-color;
-    color: white;
+  .menu-nav {
+    color: $primary-color;
     z-index: 99;
     padding: 15px 20px;
     width: 100%;
+    align-items: flex-end;
 
-    button {
-      border: none;
-      background-color: none;
-
+    svg {
       @include medium-breakpoint {
         display: none;
       }
     }
 
-    ul {
-      // display: none;
-      list-style: none;
+    .header-links {
+      display: none;
 
       @include medium-breakpoint {
-        display: block;
+      display: block;
       }
     }
 
