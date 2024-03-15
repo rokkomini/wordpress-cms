@@ -2,20 +2,39 @@
   background-color: $secondary-color;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  bottom: 0;
+  // left: 180px;
+  right: 0;
+  width: 200px;
   height: 100%;
   z-index: 10;
+  padding: 10px;
+  transform: translateX(200px);
+  // display: none;
+  opacity: 0;
+  transition: all 0.7s ease-in-out;
 
-  .overlay {
-    // position: absolute;
+  &.show {
+    transform: translateX(0);
+    right: 370px;
+    opacity: 1;
+    transition: all 0.7s ease-in-out;
     // display: block;
-    // background-color: rgba(250, 235, 215, 0.65);
-    // top: 0;
-    // height: 100%;
-    // width: 100%;
-    // z-index: 1;
   }
+
+  svg {
+
+  }
+
+   .overlay {
+  //   position: absolute;
+  //   display: block;
+  //   background-color: rgba(250, 235, 215, 0.65);
+  //   top: 0;
+  //   height: 100%;
+  //   width: 100%;
+  //   z-index: 1;
+   }
 
   .content {
     color: black;

@@ -16,7 +16,11 @@ $third-color: #058b10;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-
+  
+  &.start {
+    align-items: flex-start;
+  }
+  
   @include medium-breakpoint {
     flex-direction: row;
   }
@@ -36,6 +40,7 @@ $third-color: #058b10;
     justify-content: flex-end;
     align-items: flex-end;
   }
+  
 }
 
 .flex-row {
